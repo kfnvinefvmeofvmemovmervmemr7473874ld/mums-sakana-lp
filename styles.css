@@ -1,9 +1,11 @@
 /* 基本スタイル */
 :root {
-    --primary-color: #305f72;
-    --secondary-color: #e28413;
-    --light-bg: #fdfdfc;
-    --dark-overlay: rgba(0, 0, 0, 0.5);
+    /* カラーパレットを暖色系に一新し、温かみと華やかさを演出 */
+    --primary-color: #7d3c3a; /* 深いワインレッド */
+    --secondary-color: #e28413; /* 温かみのあるオレンジ */
+    --accent-color: #a94e21; /* 補助的なアクセントカラー */
+    --light-bg: #fff8ef; /* ペールトーンの背景色 */
+    --dark-overlay: rgba(0, 0, 0, 0.4);
     --font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -29,13 +31,13 @@ h1, h2, h3 {
 /* ヒーローセクション */
 /* ヒーローセクション
    背景画像には Data URI を使用しており、別途画像ファイルをアップロードする必要はありません。*/
+/* ヒーローセクション */
 .hero {
     position: relative;
-    /* トップページの背景写真。GitHub へアップロードするファイルです */
-    background-image: url('images/facade.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/hero.jpg');
     background-size: cover;
     background-position: center;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,10 +45,12 @@ h1, h2, h3 {
     color: #fff;
 }
 
+/* ヒーロー上のオーバーレイ */
 .hero-overlay {
-    background-color: var(--dark-overlay);
-    padding: 2rem;
-    border-radius: 8px;
+    background-color: rgba(0,0,0,0.45);
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .hero h1 {
@@ -72,10 +76,11 @@ h1, h2, h3 {
 .btn-primary {
     background-color: var(--secondary-color);
     color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: #ca6f10;
+    background-color: #c06c10;
 }
 
 .btn-secondary {
@@ -83,43 +88,71 @@ h1, h2, h3 {
     color: #fff;
     border: none;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover {
-    background-color: #2a5363;
+    background-color: #6d2f2d;
 }
 
 /* セクションスタイル */
+/* セクションの基本スタイル */
 .section {
-    padding: 3rem 1rem;
-    max-width: 900px;
+    padding: 3rem 1.2rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.section.about,
-.section.access {
-    background-color: #f7f7f5;
-    border-radius: 8px;
+/* アバウト、アクセスは柔らかい背景と丸み */
+.about,
+.access {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
 }
 
 .menu-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-top: 1.5rem;
 }
 
 .menu-item {
-    flex: 1 1 250px;
+    flex: 1 1 280px;
     background-color: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu-item h3 {
-    margin-bottom: 0.5rem;
+    margin: 0.8rem 0 0.5rem;
     color: var(--secondary-color);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* メニューアイテムの画像 */
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 予約セクション */
+.reservation {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* 予約フォーム */
@@ -141,15 +174,55 @@ h1, h2, h3 {
 .form-row input,
 .form-row select,
 .form-row textarea {
-    padding: 0.6rem;
+    padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
+    background-color: #f9f9f9;
 }
 
 .form-row span {
     color: var(--secondary-color);
     margin-left: 0.2rem;
+}
+
+/* アバウトセクションのレイアウト */
+.about-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1 1 400px;
+}
+
+.about-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* アクセスセクション */
+.access p {
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+/* フッター */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #f6f2ee;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #e9e0d8;
 }
 
 .footer {
@@ -162,15 +235,21 @@ h1, h2, h3 {
 }
 
 @media (max-width: 600px) {
+    .hero {
+        height: 50vh;
+    }
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .hero .tagline {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
+    }
+    .about-inner {
+        flex-direction: column;
     }
     .menu-grid {
         flex-direction: column;
